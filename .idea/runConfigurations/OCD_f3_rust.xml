@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration name="OCD f3-rust" type="com.jetbrains.cidr.embedded.openocd.conf.type" factoryName="com.jetbrains.cidr.embedded.openocd.conf.factory" PASS_PARENT_ENVS_2="true" PROJECT_NAME="f3-rust" TARGET_NAME="f3-rust.elf" RUN_TARGET_PROJECT_NAME="f3-rust" RUN_TARGET_NAME="f3-rust.elf">
+  <configuration default="false" name="OCD f3-rust" type="com.jetbrains.cidr.embedded.openocd.conf.type" factoryName="com.jetbrains.cidr.embedded.openocd.conf.factory" PASS_PARENT_ENVS_2="true" PROJECT_NAME="f3-rust" TARGET_NAME="f3-rust.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="f3-rust" RUN_TARGET_NAME="f3-rust.elf">
     <openocd gdb-port="3333" telnet-port="4444" board-config="board/stm32f3discovery.cfg" reset-type="INIT" download-type="ALWAYS" />
     <method v="2">
       <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />

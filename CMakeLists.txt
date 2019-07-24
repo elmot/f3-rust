@@ -41,7 +41,15 @@ file(GLOB_RECURSE SOURCES "startup/*.*" "Drivers/*.*" "Core/*.*")
 
 include_directories(Core/Inc Drivers/STM32F3xx_HAL_Driver/Inc Drivers/STM32F3xx_HAL_Driver/Inc/Legacy Drivers/CMSIS/Device/ST/STM32F3xx/Include Drivers/CMSIS/Include)
 
-add_executable(${PROJECT_NAME}.elf ${SOURCES} ${LINKER_SCRIPT})
+set(OBJS ${CMAKE_CURRENT_SOURCE_DIR}/rust/f3blink/target/thumbv7m-none-eabi/debug/libf3blink.a )
+
+set_source_files_properties(
+        ${OBJS}
+        PROPERTIES
+        EXTERNAL_OBJECT true
+        GENERATED true
+)
+add_executable(${PROJECT_NAME}.elf ${SOURCES} ${OBJS} ${LINKER_SCRIPT})
 
 set(CMAKE_EXE_LINKER_FLAGS
     "${CMAKE_EXE_LINKER_FLAGS} -Wl,-Map=${PROJECT_BINARY_DIR}/${PROJECT_NAME}.map")

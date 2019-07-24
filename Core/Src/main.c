@@ -67,6 +67,7 @@ static void MX_USART2_UART_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+__unused const uint32_t RUST_GPIOE = GPIOE_BASE;// todo optimize
 extern void foo(void);
 __unused void outputStr(uint8_t *const text, size_t len) {
     HAL_UART_Transmit(&huart2,text,len, 1000);
@@ -118,7 +119,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-    HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
+    HAL_GPIO_TogglePin(LD4_GPIO_Port, LD4_Pin);
     HAL_Delay(300);
     foo();
   }

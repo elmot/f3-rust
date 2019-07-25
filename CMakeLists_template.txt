@@ -57,7 +57,7 @@ set_property(DIRECTORY APPEND
 
 add_custom_command(OUTPUT $${RUST_LIB}
         COMMAND cargo build --target=$${RUST_TARGET_ARCH}
-        DEPENDS $${RUST_MODULE_ROOT}/src/*.*
+        DEPENDS $${RUST_MODULE_ROOT}/src/*.*  $${RUST_MODULE_ROOT}/Cargo.*
         COMMENT "Compiling rust"
         WORKING_DIRECTORY $${RUST_MODULE_ROOT}
         USES_TERMINAL

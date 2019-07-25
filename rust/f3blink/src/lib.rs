@@ -1,21 +1,6 @@
 #![no_std]
 
-//use core::fmt::{Write, self};
-use core::panic::PanicInfo;
-
-#[panic_handler]
-fn panic(_info: &PanicInfo) -> ! {
-//    let mut host_stderr = HStderr::new();
-
-    // logs "panicked at '$reason', src/main.rs:27:4" to the host stderr
-//    writeln!(host_stderr, "{}", info).ok();
-
-    loop {}
-}
-
-//fn main() {
-//    println!("Hello, world!");
-//}
+mod system;
 
 extern "C" {
     fn HAL_GPIO_TogglePin(GPIOx: *const () /*todo structure type*/, GPIO_Pin: u16);
@@ -26,7 +11,7 @@ extern "C" {
 
 #[no_mangle]
 pub extern "C" fn foo() {
-    let s = "Hello, Embedded World";
+//    let s = "Hello, Embedded World";
 
     unsafe {
 //        outputStr(s.as_ptr(), s.len());

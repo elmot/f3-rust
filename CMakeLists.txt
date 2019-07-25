@@ -17,11 +17,7 @@ set(SIZE arm-none-eabi-size)
 SET(LINKER_SCRIPT ${CMAKE_SOURCE_DIR}/STM32F303VCTx_FLASH.ld)
 
 #Uncomment for hardware floating point
-#SET(FPU_FLAGS "-mfloat-abi=hard -mfpu=fpv4-sp-d16")
-#add_definitions(-DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT=1)
-
-#Uncomment for software floating point
-#SET(FPU_FLAGS "-mfloat-abi=soft")
+SET(FPU_FLAGS "-mfloat-abi=hard -mfpu=fpv4-sp-d16")
 
 SET(COMMON_FLAGS
     "-mcpu=cortex-m4 ${FPU_FLAGS} -mthumb -mthumb-interwork -ffunction-sections -fdata-sections \
@@ -34,14 +30,13 @@ SET(CMAKE_EXE_LINKER_FLAGS_INIT "-Wl,-gc-sections,--print-memory-usage -T ${LINK
 PROJECT(f3-rust C CXX ASM)
 set(CMAKE_CXX_STANDARD 11)
 
-#add_definitions(-DARM_MATH_CM4 -DARM_MATH_MATRIX_CHECK -DARM_MATH_ROUNDING -D__FPU_PRESENT=1)
 add_definitions(-D__weak=__attribute__\(\(weak\)\) -D__packed=__attribute__\(\(__packed__\)\) -DUSE_HAL_DRIVER -DSTM32F303xC)
 
 file(GLOB_RECURSE SOURCES "startup/*.*" "Drivers/*.*" "Core/*.*")
 
 include_directories(Core/Inc Drivers/STM32F3xx_HAL_Driver/Inc Drivers/STM32F3xx_HAL_Driver/Inc/Legacy Drivers/CMSIS/Device/ST/STM32F3xx/Include Drivers/CMSIS/Include)
 
-set(OBJS ${CMAKE_CURRENT_SOURCE_DIR}/rust/f3blink/target/thumbv7m-none-eabi/debug/libf3blink.a )
+set(OBJS ${CMAKE_CURRENT_SOURCE_DIR}/rust/f3blink/target/thumbv7em-none-eabihf/debug/libf3blink.a )
 
 set_source_files_properties(
         ${OBJS}

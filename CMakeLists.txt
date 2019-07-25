@@ -77,3 +77,10 @@ add_custom_command(TARGET ${PROJECT_NAME}.elf POST_BUILD
         COMMAND ${CMAKE_OBJCOPY} -Obinary $<TARGET_FILE:${PROJECT_NAME}.elf> ${BIN_FILE}
         COMMENT "Building ${HEX_FILE}
 Building ${BIN_FILE}")
+
+add_custom_target(SETUP_RUST rustup install stable
+        COMMAND rustup default stable
+        COMMAND rustup target add ${RUST_TARGET_ARCH}
+        COMMENT "Setup Rust SDK"
+        USES_TERMINAL
+        )

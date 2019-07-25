@@ -20,3 +20,9 @@ File structure
 \---startup                // MCU ASM startup code
 ```
 
+Quick Start
+---
+One needs to:
+ 1. Open the project in CLion
+ 2. Launch `SETUP_RUST` build config (do not run it)
+ 3. Run `OCD f3-rust` run configuration 

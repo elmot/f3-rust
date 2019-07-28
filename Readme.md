@@ -6,6 +6,7 @@ Embedded Rust Sample Project
 * Build System: CMake + Cargo
 * Tools: CLion, STM32CubeMX, GCC, OpenOCD
 * Target Board: STM32F3-Discovery
+* Toolchains: gcc-arm-none-eabi
 
 File structure
 ---
@@ -25,4 +26,4 @@ Quick Start
 One needs to:
  1. Open the project in CLion
  2. Launch `SETUP_RUST` build config (do not run it)
- 3. Run `OCD f3-rust` run configuration 
+ 3. Run `OCD f3-rust` run configuration

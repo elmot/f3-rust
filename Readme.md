@@ -25,5 +25,5 @@ Quick Start
 ---
 One needs to:
  1. Open the project in CLion
- 2. Launch `SETUP_RUST` build config (do not run it)
+ 2. Build `SETUP_RUST` config (do not run it) - that will
  3. Run `OCD f3-rust` run configuration
